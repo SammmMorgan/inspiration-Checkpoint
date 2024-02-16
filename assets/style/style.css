@@ -1,0 +1,19 @@
+/* BASIC STYLES HERE */
+body {
+    background-position: center;
+    background-size: cover;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fade-card {
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.501);
+    color: white;
+    display: flex;
+    flex-shrink: 1;
+}
