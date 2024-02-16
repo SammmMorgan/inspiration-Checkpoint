@@ -5,7 +5,7 @@ import { setHTML } from "../utils/Writer.js"
 
 function _drawUnsandboxImage() {
 
-    console.log('is anything evne working');
+    // console.log('is anything evne working');
     const unsandboxImage = AppState.backgroundImage
     document.body.style.backgroundImage = `url(${unsandboxImage.imgUrl})`
 
@@ -14,7 +14,7 @@ function _drawUnsandboxImage() {
 
 function _drawQuote() {
 
-    console.log('is anything evne working');
+    // console.log('is anything evne working');
     const quote = AppState.displayQuote
     setHTML('quoteElement', quote.QuoteHTML)
 
@@ -26,6 +26,7 @@ export class InspirationBasicController {
 
 
     constructor() {
+        this.acquireTime()
         AppState.on('backgroundImage', _drawUnsandboxImage)
         AppState.on('displayQuote', _drawQuote)
         AppState.on('account', this.getRandomImage)
@@ -49,5 +50,9 @@ export class InspirationBasicController {
             Pop.error(error)
 
         }
+    }
+
+    acquireTime() {
+        iBasicService.setUpTime()
     }
 }
