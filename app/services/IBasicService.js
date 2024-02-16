@@ -5,7 +5,6 @@ import { api } from "./AxiosService.js";
 class IBasicService {
 
     async getNewQuote() {
-        debugger
         const response = await api.get('api/quotes')
         console.log('📡 Got a quote', response.data);
         const newQuote = new Ibasic(response.data)
