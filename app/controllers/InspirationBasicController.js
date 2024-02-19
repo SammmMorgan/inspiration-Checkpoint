@@ -12,6 +12,13 @@ function _drawUnsandboxImage() {
     // setHTML('imageInfo', unsandboxImage.InfoCardHTMLTemplate)
 }
 
+function _drawWeather() {
+    const weatherReadout = AppState.weatherDisplay
+    console.log(weatherReadout);
+
+    setHTML('weatherElement', weatherReadout.WeatherElement)
+}
+
 function _drawQuote() {
 
     // console.log('is anything evne working');
@@ -29,8 +36,12 @@ export class InspirationBasicController {
         this.acquireTime()
         AppState.on('backgroundImage', _drawUnsandboxImage)
         AppState.on('displayQuote', _drawQuote)
+        AppState.on('weatherDisplay', _drawWeather)
         AppState.on('account', this.getRandomImage)
         AppState.on('account', this.getRandomQuote)
+        AppState.on('account', this.getWeather)
+
+
 
     }
 
@@ -54,5 +65,15 @@ export class InspirationBasicController {
 
     acquireTime() {
         iBasicService.setUpTime()
+    }
+
+    async getWeather() {
+        try {
+            await iBasicService.getWeather()
+
+        } catch (error) {
+            Pop.error(error)
+
+        }
     }
 }

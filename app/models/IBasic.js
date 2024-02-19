@@ -9,6 +9,7 @@ export class Ibasic {
         this.nameOfPlace = data.name
         this.weatherReadout = data.weather
         this.quote = data.content
+        this.values = data.main
     }
 
     get QuoteHTML() {
@@ -30,6 +31,27 @@ export class Ibasic {
     </section>
         `
     }
+
+    get WeatherElement() {
+        return `
+        <section class="row">
+        <div class="col-12"
+                <div class="card-body">
+                    <h4 class="card-title"> ${this.values}</h4>
+                </div>
+                <div class="hidden-details text-center">
+                <h2>
+                <span> ${this.nameOfPlace}</span>
+                <span>By ${this.weatherReadout.main}, ${this.weatherReadout.description}</span>
+                <i class="mdi mdi-account-circle text-light"></i>
+                </h2>
+             
+            </div>
+        </div>
+    </section>
+        `
+    }
+
 
     // get InfoCardHTMLTemplate() {
     //     return `

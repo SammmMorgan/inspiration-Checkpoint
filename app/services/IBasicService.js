@@ -4,6 +4,15 @@ import { setHTML, setText } from "../utils/Writer.js";
 import { api } from "./AxiosService.js";
 
 class IBasicService {
+    async getWeather() {
+        const response = await api.get('api/weather')
+        const weather = new Ibasic(response.data)
+        AppState.weatherDisplay = weather
+        console.log(AppState.weatherDisplay);
+
+    }
+
+
     async setUpTime() {
         let currentTime = await new Date().toLocaleTimeString()
         setHTML('timeClock', currentTime)
