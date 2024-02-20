@@ -3,6 +3,16 @@ import { IToDo } from "../models/IToDo.js"
 import { api } from "./AxiosService.js"
 
 class IToDoService {
+    async murderToDo(toDoId) {
+        const givenToDo = AppState.toDos.findIndex(task => task.id == toDoId)
+        if (givenToDo == -1) {
+            throw new Error('find index failed')
+        }
+        const response = await api.delete(`api/todos/${toDoId}`)
+        console.log(givenToDo);
+        AppState.toDos.splice(givenToDo, 1)
+
+    }
     async editToDo(toDoId) {
         const givenToDo = AppState.toDos.findIndex(task => task.id == toDoId)
         if (givenToDo == -1) {

@@ -15,7 +15,7 @@ export class IToDo {
             ${this.CompletedCheckbox}
                           </div>
             ${this.description}
-            <span class="text-danger mdi mdi-trash-can" role="button">
+            <span onclick="app.IToDoController.murderToDo('${this.id}')" class="text-danger mdi mdi-trash-can" role="button">
             </span>
             </p>
         </div>

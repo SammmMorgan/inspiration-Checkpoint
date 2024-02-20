@@ -3,7 +3,7 @@ import { IToDo } from "../models/IToDo.js"
 import { iToDoService } from "../services/IToDoService.js"
 import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
-import { setHTML } from "../utils/Writer.js"
+import { setHTML, setText } from "../utils/Writer.js"
 
 
 function _drawToDoList() {
@@ -15,6 +15,11 @@ function _drawToDoList() {
 
 }
 
+function _drawCount() {
+    let counter = AppState.toDos.length
+    setText('counterHTML', [counter])
+}
+
 
 export class IToDoController {
 
@@ -23,6 +28,7 @@ export class IToDoController {
     constructor() {
         AppState.on('toDos', _drawToDoList)
         AppState.on('account', this.getToDos)
+        AppState.on('toDos', _drawCount)
     }
 
 
@@ -42,6 +48,8 @@ export class IToDoController {
             const formData = getFormData(form)
 
             await iToDoService.makeToDo(formData)
+            // @ts-ignore
+            form.reset()
 
         } catch (error) {
             Pop.error(error)
@@ -56,11 +64,15 @@ export class IToDoController {
         }
     }
 
-    async murderToDo() {
+    async murderToDo(toDoId) {
         try {
-
+            const wantsToRemove = await Pop.confirm('are you sure you want to delete that?')
+            if (!wantsToRemove) {
+                return
+            }
+            await iToDoService.murderToDo(toDoId)
         } catch (error) {
-
+            Pop.error(error)
         }
     }
 

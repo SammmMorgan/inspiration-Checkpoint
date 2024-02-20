@@ -11,7 +11,11 @@
     </section> -->
 </div>
 
+
 <div id="toDoList" class="container align-items-bottom d-flex">
+    <section class="row">
+        <div id="counterHTML" class="col-12"></div>
+    </section>
     <!-- <section class="row align-items-center">
         <div class="col-12 p-3 fade-card align-items-center">
             <p class="">
@@ -21,7 +25,7 @@
                 </label>
             </div>
             Get This FUcker Done
-            <span class="text-danger mdi mdi-trash-can" role="button">
+            <span onclick="app.IToDoController.murderToDo(${this.id})" class="text-danger mdi mdi-trash-can" role="button">
             </span>
             </p>
         </div>
