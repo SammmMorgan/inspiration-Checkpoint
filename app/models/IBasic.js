@@ -39,7 +39,7 @@ export class Ibasic {
                 <div class="card-body">
                     <h4 class="card-title"> ${this.values}</h4>
                 </div>
-                <div class="hidden-details text-center">
+                <div class="text-center">
                 <h2>
                 <span> ${this.nameOfPlace}</span>
                 <span>By ${this.weatherReadout.main}, ${this.weatherReadout.description}</span>

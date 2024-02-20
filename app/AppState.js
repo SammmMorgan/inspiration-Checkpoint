@@ -15,6 +15,8 @@ class ObservableAppState extends EventEmitter {
 
   weatherDisplay = {}
 
+  toDos = []
+
 
   user = null
   /**@type {import('./models/Account.js').Account | null} */
