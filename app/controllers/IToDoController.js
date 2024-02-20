@@ -1,6 +1,7 @@
 import { AppState } from "../AppState.js"
 import { IToDo } from "../models/IToDo.js"
 import { iToDoService } from "../services/IToDoService.js"
+import { getFormData } from "../utils/FormHandler.js"
 import { Pop } from "../utils/Pop.js"
 import { setHTML } from "../utils/Writer.js"
 
@@ -27,7 +28,6 @@ export class IToDoController {
 
     async getToDos() {
         try {
-            debugger
             await iToDoService.drawToDos()
         } catch (error) {
             Pop.error(error)
@@ -36,17 +36,23 @@ export class IToDoController {
 
     async makeNewToDo() {
         try {
+            event.preventDefault()
+            console.log('this work at all');
+            const form = event.target
+            const formData = getFormData(form)
+
+            await iToDoService.makeToDo(formData)
 
         } catch (error) {
-
+            Pop.error(error)
         }
     }
 
-    async editToDo() {
+    async editToDo(toDoId) {
         try {
-
+            await iToDoService.editToDo(toDoId)
         } catch (error) {
-
+            Pop.error(error)
         }
     }
 

@@ -16,7 +16,7 @@
         <div class="col-12 p-3 fade-card align-items-center">
             <p class="">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input name="completed"  class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                 </label>
             </div>
@@ -26,4 +26,15 @@
             </p>
         </div>
     </section> -->
+</div>
+
+<div class="text-center fs-4">
+    <form onsubmit="app.IToDoController.makeNewToDo()">
+        <div class="mb-3 flex-shrink-1 fade-card">
+            <label for="exampleInputEmail1" class="form-label p-2 justify-content-center">New Task</label>
+            <input name="description" type="text" class="form-control" id="exampleInputEmail1" required
+                aria-describedby="emailHelp">
+            <button type="submit" class="btn btn-outline-light">Submit</button>
+        </div>
+    </form>
 </div>

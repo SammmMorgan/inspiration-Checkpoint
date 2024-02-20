@@ -12,7 +12,7 @@ main {
 
 .fade-card {
     border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0.501);
+    background-color: rgba(0, 0, 0, 0.701);
     color: white;
     display: flex;
     flex-shrink: 1;
